@@ -7,28 +7,24 @@ const Pet = (props) => {
 };
 
 const App = () => {
-  return React.createElement(
-    "div",
-    {},
-    [
-       React.createElement("h1", {}, "Adopt Me!"),
-       React.createElement(Pet,{
-        name : "Arcanine",
-        animal : "Dog",
-        breed : "Legendary"
-       }),
-       React.createElement(Pet,{
-        name : "Snorlax",
-        animal : "Dog",
-        breed : "Legendary"
-       }),
-       React.createElement(Pet,{
-        name : "Pikachu",
-        animal : "Dog",
-        breed : "Legendary"
-       }),
-    ]
-);
+  return React.createElement("div", {}, [
+    React.createElement("h1", {}, "Adopt Me!"),
+    React.createElement(Pet, {
+      name: "Arcanine",
+      animal: "Ino",
+      breed: "Legendary",
+    }),
+    React.createElement(Pet, {
+      name: "Snorlax",
+      animal: "Kuma",
+      breed: "Legendary",
+    }),
+    React.createElement(Pet, {
+      name: "Pikachu",
+      animal: "souri",
+      breed: "Shiny",
+    }),
+  ]);
 };
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
