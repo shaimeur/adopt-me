@@ -1,5 +1,11 @@
+import { useState } from "react";
 const SearchParams = () => {
-  const location = "Seattle,WA";
+  const [location, setLocation] = useState("");
+  //   const location = "Seattle,WA";
+  const inputWatcher = (e) => {
+    console.log("==>", e.target.value);
+    setLocation(e.target.value);
+  };
   return (
     <div className="search-params">
       <form>
@@ -11,6 +17,7 @@ const SearchParams = () => {
             id="location"
             placeholder="Location..."
             value={location}
+            onChange={inputWatcher}
           />
         </label>
         <button>Submit</button>
