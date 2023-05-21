@@ -1,17 +1,19 @@
 import { useState } from "react";
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
   const [location, setLocation] = useState("");
-  //   const location = "Seattle,WA";
+  const [animal, setAnimal] = useState();
+  const [breed, setBreed] = useState();
+  const breeds = [];
   const inputWatcher = (e) => {
-    console.log("==>", e.target.value);
     setLocation(e.target.value);
   };
+
   return (
     <div className="search-params">
       <form>
         <label htmlFor="location">
           Location
-          {console.log("I just re-rendered!")}
           <input
             type="text"
             id="location"
@@ -19,6 +21,45 @@ const SearchParams = () => {
             value={location}
             onChange={inputWatcher}
           />
+        </label>
+        <label htmlFor="animal">
+          Animal
+          <select
+            id="animal"
+            value={animal}
+            onChange={(e) => {
+              setAnimal(e.target.value);
+              setBreed("");
+            }}
+            onBlur={(e) => {
+              setAnimal(e.target.value);
+              setBreed("");
+            }}
+          >
+            <option />
+            {ANIMALS.map((item) => {
+              return <option key={item}>{item}</option>;
+            })}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            id="breed"
+            disabled={breeds.length === 0}
+            value={breed}
+            onChange={(e) => {
+              setBreed(e.target.value);
+            }}
+            onBlur={(e) => {
+              setBreed(e.target.value);
+            }}
+          >
+            <option />
+            {breeds.map((breed) => {
+              return <option key={breed}>{breed}</option>;
+            })}
+          </select>
         </label>
         <button>Submit</button>
       </form>
