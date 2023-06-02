@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/" element={<SearchParams />} />
         </Routes>
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </BrowserRouter>
   );
